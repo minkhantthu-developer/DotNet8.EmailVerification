@@ -27,8 +27,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.EmailVerification.M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.EmailVerification.Modules.Account.Infrastructure", "DotNet8.EmailVerification.Modules.Account.Infrastructure\DotNet8.EmailVerification.Modules.Account.Infrastructure.csproj", "{1652790C-BBB7-48DB-A104-BED328CA253A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNet8.EmailVerification.Modules.Account.Application.Presentation", "DotNet8.EmailVerification.Modules.Account.Application.Presentation\DotNet8.EmailVerification.Modules.Account.Application.Presentation.csproj", "{56DEF35D-AAD5-49B6-B257-9CD204199159}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,10 +61,6 @@ Global
 		{1652790C-BBB7-48DB-A104-BED328CA253A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1652790C-BBB7-48DB-A104-BED328CA253A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1652790C-BBB7-48DB-A104-BED328CA253A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{56DEF35D-AAD5-49B6-B257-9CD204199159}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{56DEF35D-AAD5-49B6-B257-9CD204199159}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{56DEF35D-AAD5-49B6-B257-9CD204199159}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{56DEF35D-AAD5-49B6-B257-9CD204199159}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -82,7 +76,6 @@ Global
 		{73EF25B0-CFB0-4B54-9741-028FA74B0A11} = {E136DE5F-5037-41EB-ADD8-DF59ADC0D2DA}
 		{94898EF6-3CB3-4C91-ADE7-EFD8AD1CE486} = {E136DE5F-5037-41EB-ADD8-DF59ADC0D2DA}
 		{1652790C-BBB7-48DB-A104-BED328CA253A} = {E136DE5F-5037-41EB-ADD8-DF59ADC0D2DA}
-		{56DEF35D-AAD5-49B6-B257-9CD204199159} = {E136DE5F-5037-41EB-ADD8-DF59ADC0D2DA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3D35F4D0-7E04-4EE0-A935-6754B792F2C7}
