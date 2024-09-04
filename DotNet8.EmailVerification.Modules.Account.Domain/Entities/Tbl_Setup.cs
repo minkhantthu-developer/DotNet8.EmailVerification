@@ -1,0 +1,13 @@
+﻿namespace DotNet8.EmailVerification.Modules.Account.Domain.Entities;
+
+[Table("Tbl_Setup")]
+public class Tbl_Setup
+{
+    [Key] public int SetupId { get; set; }
+
+    public string? UserId { get; set; }
+
+    public string? SetupCode { get; set; }
+
+    public string? DateCreate { get;set; }
+}

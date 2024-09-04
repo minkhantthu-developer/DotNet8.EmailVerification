@@ -10,4 +10,8 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DotNet8.EmailVerification.Modules.Account.Infrastructure\DotNet8.EmailVerification.Modules.Account.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
