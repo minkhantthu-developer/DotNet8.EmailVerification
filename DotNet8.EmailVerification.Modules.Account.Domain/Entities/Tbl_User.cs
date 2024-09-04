@@ -3,7 +3,7 @@
 [Table("Tbl_User")]
 public class Tbl_User
 {
-    [Key] public int UserId { get; set; }
+    [Key] public string? UserId { get; set; }
 
     public string? UserName { get; set; }
 
