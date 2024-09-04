@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DotNet8.EmailVerification.Modules.Account.Presentation.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/account")]
     [ApiController]
     public class AccountController : BaseController
     {
@@ -13,13 +13,23 @@ namespace DotNet8.EmailVerification.Modules.Account.Presentation.Controllers
 
         public AccountController(IUserService userService) => _userService = userService;
 
-        [HttpPost]
+        [HttpPost("register")]
         public async Task<IActionResult> RegisterUserAsync([FromForm]
             RegisterUserDTO requestModel,
             CancellationToken cancellationToken
             )
         {
             var response=await _userService.RegisterUserAsync(requestModel, cancellationToken);
+            return Content(response);
+        }
+
+        [HttpPost("ConfirmEmail")]
+        public async Task<IActionResult> ConfrimEmailAsync([FromForm]
+            ConfirmEmailDTO confirmEmailDto,
+            CancellationToken cancellationToken
+            )
+        {
+            var response=await _userService.ConfirmEmailAsync(confirmEmailDto, cancellationToken);
             return Content(response);
         }
     }

@@ -82,9 +82,46 @@ namespace DotNet8.EmailVerification.Modules.Account.Infrastructure.Account
             return response;
         }
 
-        public async Task<Result<UserDTO>> ConfirmEmailAsync(ConfirmEmailDTO comfirmEmail, CancellationToken cancellationToken)
+        public async Task<Result<UserDTO>> ConfirmEmailAsync(
+            ConfirmEmailDTO comfirmEmail,
+            CancellationToken cancellationToken
+            )
         {
-            throw new NotImplementedException();
+            Result<UserDTO> response;
+            try
+            {
+                var setup = await _context
+                    .Tbl_Setup
+                    .FirstOrDefaultAsync(x => 
+                    x.SetupCode == comfirmEmail.Code,
+                    cancellationToken);
+                if(setup is null)
+                {
+                    response = Result<UserDTO>.NotFound("Invalid Code");
+                    goto result;
+                }
+                var user=await _context
+                    .Tbl_User
+                    .FirstOrDefaultAsync(x=>
+                            x.UserId == comfirmEmail.UserId,
+                            cancellationToken);
+                if(user is null)
+                {
+                    response = Result<UserDTO>.NotFound("User not found");
+                    goto result;
+                }
+                user.IsEmailVerified = true;
+                _context.Tbl_User.Update(user);
+                _context.Tbl_Setup.Remove(setup); 
+                await _context.SaveChangesAsync(cancellationToken);
+                response = Result<UserDTO>.Success();
+            }
+            catch (Exception ex)
+            {
+                response= Result<UserDTO>.Failure(ex);
+            }
+            result:
+            return response;
         }
 
         private string GetSixRandomNumber()

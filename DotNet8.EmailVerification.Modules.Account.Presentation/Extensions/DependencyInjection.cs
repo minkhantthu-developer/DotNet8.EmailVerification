@@ -29,13 +29,15 @@ namespace DotNet8.EmailVerification.Modules.Account.Presentation.Extensions
             this IServiceCollection services,
             WebApplicationBuilder builder)
         {
-            return services.AddHangfire(opt =>
+            builder.Services.AddHangfire(opt =>
             {
                 opt.UseSqlServerStorage(builder.Configuration.GetConnectionString("DbConnection"))
                    .SetDataCompatibilityLevel(CompatibilityLevel.Version_180)
                    .UseSimpleAssemblyNameTypeSerializer()
                    .UseRecommendedSerializerSettings();
             });
+            builder.Services.AddHangfireServer();
+            return services;
         }
 
         public static IServiceCollection AddDataAccessService(this IServiceCollection services)
