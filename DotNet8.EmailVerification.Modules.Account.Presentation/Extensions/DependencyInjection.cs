@@ -1,4 +1,6 @@
-﻿using Hangfire;
+﻿using DotNet8.EmailVerification.Modules.Account.Domain.Account;
+using DotNet8.EmailVerification.Modules.Account.Infrastructure.Account;
+using Hangfire;
 
 namespace DotNet8.EmailVerification.Modules.Account.Presentation.Extensions
 {
@@ -9,7 +11,8 @@ namespace DotNet8.EmailVerification.Modules.Account.Presentation.Extensions
             WebApplicationBuilder builder)
         {
             return services.AddDbService(builder)
-                          .AddHangFireService(builder);
+                           .AddDataAccessService()
+                           .AddHangFireService(builder);
         }
 
         private static IServiceCollection AddDbService(
@@ -33,6 +36,11 @@ namespace DotNet8.EmailVerification.Modules.Account.Presentation.Extensions
                    .UseSimpleAssemblyNameTypeSerializer()
                    .UseRecommendedSerializerSettings();
             });
+        }
+
+        public static IServiceCollection AddDataAccessService(this IServiceCollection services)
+        {
+            return services.AddScoped<IUserService, UserService>();
         }
 
         public static void AddFluentEmailService(

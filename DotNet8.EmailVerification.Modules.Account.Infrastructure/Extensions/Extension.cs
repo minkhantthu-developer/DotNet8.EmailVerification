@@ -21,5 +21,16 @@ namespace DotNet8.EmailVerification.Modules.Account.Infrastructure.Extensions
                 IsActive=true
             };
         }
+
+        public static Tbl_Setup ToEntity(string userId,string code)
+        {
+            return new Tbl_Setup
+            {
+                SetupId = Ulid.NewUlid().ToString(),
+                UserId = userId,
+                SetupCode = code,
+                DateCreate = DateTime.Now
+            };
+        }
     }
 }

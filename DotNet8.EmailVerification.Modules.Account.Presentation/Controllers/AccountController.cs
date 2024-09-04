@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using DotNet8.EmailVerification.DTOs.Features.Account;
+using DotNet8.EmailVerification.Modules.Account.Domain.Account;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DotNet8.EmailVerification.Modules.Account.Presentation.Controllers
@@ -7,10 +9,18 @@ namespace DotNet8.EmailVerification.Modules.Account.Presentation.Controllers
     [ApiController]
     public class AccountController : BaseController
     {
-        [HttpGet]
-        public IActionResult Test(CancellationToken cancellationToken)
+        private readonly IUserService _userService;
+
+        public AccountController(IUserService userService) => _userService = userService;
+
+        [HttpPost]
+        public async Task<IActionResult> RegisterUserAsync([FromForm]
+            RegisterUserDTO requestModel,
+            CancellationToken cancellationToken
+            )
         {
-            return Content("cancellationToken");
+            var response=await _userService.RegisterUserAsync(requestModel, cancellationToken);
+            return Content(response);
         }
     }
 }

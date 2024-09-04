@@ -9,5 +9,9 @@ namespace DotNet8.EmailVerification.Modules.Account.Presentation.Controllers
     [ApiController]
     public class BaseController : ControllerBase
     {
+        protected IActionResult Content(Object obj)
+        {
+            return Content(obj.ToJson(), "application/json");
+        }
     }
 }
