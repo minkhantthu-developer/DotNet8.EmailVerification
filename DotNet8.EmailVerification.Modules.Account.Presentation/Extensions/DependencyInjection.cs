@@ -8,7 +8,8 @@ public static class DependencyInjection
     {
         return services.AddDbService(builder)
                        .AddDataAccessService()
-                       .AddHangFireService(builder);
+                       .AddHangFireService(builder)
+                       .AddCors();
     }
 
     private static IServiceCollection AddDbService(
