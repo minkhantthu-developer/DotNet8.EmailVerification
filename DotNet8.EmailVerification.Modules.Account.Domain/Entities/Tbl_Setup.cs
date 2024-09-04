@@ -9,5 +9,5 @@ public class Tbl_Setup
 
     public string? SetupCode { get; set; }
 
-    public string? DateCreate { get;set; }
+    public DateTime DateCreate { get;set; }
 }

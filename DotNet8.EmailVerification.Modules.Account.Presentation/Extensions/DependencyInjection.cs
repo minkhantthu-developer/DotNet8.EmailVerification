@@ -1,4 +1,6 @@
-﻿namespace DotNet8.EmailVerification.Modules.Account.Presentation.Extensions
+﻿using Hangfire;
+
+namespace DotNet8.EmailVerification.Modules.Account.Presentation.Extensions
 {
     public static class DependencyInjection
     {
@@ -6,7 +8,8 @@
             this IServiceCollection services,
             WebApplicationBuilder builder)
         {
-            return services.AddDbService(builder);
+            return services.AddDbService(builder)
+                          .AddHangFireService(builder);
         }
 
         private static IServiceCollection AddDbService(
@@ -16,6 +19,19 @@
             return builder.Services.AddDbContext<AccountDbContext>(opt =>
             {
                 opt.UseSqlServer(builder.Configuration.GetConnectionString("DbConnection"));
+            });
+        }
+
+        public static IServiceCollection AddHangFireService(
+            this IServiceCollection services,
+            WebApplicationBuilder builder)
+        {
+            return services.AddHangfire(opt =>
+            {
+                opt.UseSqlServerStorage(builder.Configuration.GetConnectionString("DbConnection"))
+                   .SetDataCompatibilityLevel(CompatibilityLevel.Version_180)
+                   .UseSimpleAssemblyNameTypeSerializer()
+                   .UseRecommendedSerializerSettings();
             });
         }
 
