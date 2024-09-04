@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using DotNet8.EmailVerification.Shared;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
@@ -8,9 +9,5 @@ namespace DotNet8.EmailVerification.Modules.Account.Presentation.Controllers
     [ApiController]
     public class BaseController : ControllerBase
     {
-        protected IActionResult Content(object obj)
-        {
-            return Content(JsonConvert.SerializeObject(obj));
-        }
     }
 }

@@ -7,12 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentEmail.Smtp" Version="3.0.2" />
+    <PackageReference Include="Hangfire" Version="1.8.14" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.8" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DotNet8.EmailVerification.DTOs\DotNet8.EmailVerification.DTOs.csproj" />
     <ProjectReference Include="..\DotNet8.EmailVerification.Modules.Account.Domain\DotNet8.EmailVerification.Modules.Account.Domain.csproj" />
+    <ProjectReference Include="..\DotNet8.EmailVerification.Shared\DotNet8.EmailVerification.Shared.csproj" />
+    <ProjectReference Include="..\DotNet8.EmailVerification.Utils\DotNet8.EmailVerification.Utils.csproj" />
   </ItemGroup>
 
 </Project>

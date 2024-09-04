@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DotNet8.EmailVerification.DTOs.Features.Account;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,17 @@ namespace DotNet8.EmailVerification.Modules.Account.Infrastructure.Extensions
 {
     public static class Extension
     {
+        public static Tbl_User ToEntity(this RegisterUserDTO requestDto)
+        {
+            return new Tbl_User
+            {
+                UserId = Ulid.NewUlid().ToString(),
+                UserName=requestDto.UserName,
+                Email=requestDto.Email,
+                Password=requestDto.Password,
+                IsEmailVerified=false,
+                IsActive=true
+            };
+        }
     }
 }
