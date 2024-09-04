@@ -1,12 +1,3 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿global using DotNet8.EmailVerification.Utils.Enums;
 
-namespace DotNet8.EmailVerification.Utils
-{
-    internal class GlobalUsings
-    {
-    }
-}
+

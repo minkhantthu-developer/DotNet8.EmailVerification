@@ -1,19 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace DotNet8.EmailVerification.DTOs.Features.Account;
 
-namespace DotNet8.EmailVerification.DTOs.Features.Account
+public class RegisterUserDTO
 {
-    public class RegisterUserDTO
-    {
-        public string UserName { get; set; }
+    public string UserName { get; set; }
 
-        [EmailAddress]
-        public string Email { get; set; }
+    [EmailAddress]
+    public string Email { get; set; }
 
-        public string Password { get;set; }
-    }
+    public string Password { get;set; }
 }
