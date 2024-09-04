@@ -1,7 +1,4 @@
-﻿using DotNet8.EmailVerification.Modules.Account.Infrastructure.Db;
-using Microsoft.EntityFrameworkCore;
-
-namespace DotNet8.EmailVerification.Modules.Account.Presentation.Extensions
+﻿namespace DotNet8.EmailVerification.Modules.Account.Presentation.Extensions
 {
     public static class DependencyInjection
     {
