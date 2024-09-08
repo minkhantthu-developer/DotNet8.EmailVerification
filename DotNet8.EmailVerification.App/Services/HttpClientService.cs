@@ -1,7 +1,6 @@
 ﻿using DotNet8.EmailVerification.Shared;
 using System.Net.Mime;
 using System.Text;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace DotNet8.EmailVerification.App.Services
 {
@@ -17,12 +16,12 @@ namespace DotNet8.EmailVerification.App.Services
             object? obj = null
             )
         {
-            HttpResponseMessage response = null;
-            HttpContent content = null;
+            HttpResponseMessage? response = null;
+            HttpContent? content = null;
             if (obj is not null)
             {
                 var jsonString = obj.ToJson();
-                content = new StringContent(jsonString, Encoding.UTF8, Application.Json);
+                content = new StringContent(jsonString, Encoding.UTF8, MediaTypeNames.Application.Json);
             }
             switch (enumHttpMethod)
             {
