@@ -9,7 +9,7 @@ public class AccountController : BaseController
     public AccountController(IUserService userService) => _userService = userService;
 
     [HttpPost("register")]
-    public async Task<IActionResult> RegisterUserAsync([FromForm]
+    public async Task<IActionResult> RegisterUserAsync(
         RegisterUserDTO requestModel,
         CancellationToken cancellationToken
         )
@@ -19,7 +19,7 @@ public class AccountController : BaseController
     }
 
     [HttpPost("ConfirmEmail")]
-    public async Task<IActionResult> ConfrimEmailAsync([FromForm]
+    public async Task<IActionResult> ConfrimEmailAsync(
         ConfirmEmailDTO confirmEmailDto,
         CancellationToken cancellationToken
         )

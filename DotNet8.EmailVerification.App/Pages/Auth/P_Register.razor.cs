@@ -7,7 +7,7 @@ namespace DotNet8.EmailVerification.App.Pages.Auth
 {
     public partial class P_Register
     {
-        public RegisterUserDTO requestDto { get; set; } = new();
+        public RegisterUserDTO requestDto { get; set; }  = new();
 
         public async Task RegisterUser()
         {
